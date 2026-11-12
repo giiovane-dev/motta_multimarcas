@@ -198,6 +198,17 @@ test('financial institutions appear after financing, before reviews, with correc
  await page.emulateMedia({reducedMotion:'reduce'});expect(await page.locator('.institution-card').first().evaluate(el=>getComputedStyle(el).opacity)).toBe('1');
 });
 
+test('bank carousel advances automatically, loops and can be paused',async({page})=>{
+ await mockBackend(page,{session:false});await mockInstitutions(page);await page.emulateMedia({reducedMotion:'no-preference'});await page.setViewportSize({width:390,height:900});await page.goto('/');
+ const track=page.locator('#institutions-track');await expect(track).toBeVisible();await track.scrollIntoViewIfNeeded();await page.mouse.move(0,0);
+ await expect.poll(()=>track.evaluate(el=>el.scrollLeft),{timeout:7000}).toBeGreaterThan(0);
+ await page.getByRole('button',{name:'Pausar carrossel automático',exact:true}).click();await page.mouse.move(0,0);await page.locator('h1').click();
+ await expect.poll(()=>track.evaluate(el=>el.scrollLeft)).toBeGreaterThan(0);
+ await page.waitForTimeout(700);const paused=await track.evaluate(el=>el.scrollLeft);await page.waitForTimeout(3300);expect(await track.evaluate(el=>el.scrollLeft)).toBe(paused);
+ await track.evaluate(el=>el.scrollTo({left:el.scrollWidth,behavior:'instant'}));await page.getByRole('button',{name:'Iniciar carrossel automático',exact:true}).click();await page.locator('h1').click();await page.mouse.move(0,0);
+ await expect.poll(()=>track.evaluate(el=>el.scrollLeft),{timeout:7000}).toBeLessThan(2);
+});
+
 test('administrator manages institution visibility, order, logo, creation and removal',async({page})=>{
  await mockBackend(page);const rows=await mockInstitutions(page);await page.goto('/admin/settings');await expect(page.locator('.financing-admin-row')).toHaveCount(9);
  await page.getByRole('button',{name:'Adicionar instituição',exact:true}).click();await page.getByLabel('Nome da instituição',{exact:true}).fill('Instituição do teste');await page.getByLabel('Ordem de exibição',{exact:true}).fill('1');await page.getByLabel('URL do logotipo oficial (HTTPS ou /img/)',{exact:true}).fill('/img/07_logotipo_motta_mockup.png');await page.locator('#admin-dialog button[type=submit]').click();await expect(page.locator('#admin-dialog .form-error')).toContainText('Confirme a identidade');await page.getByLabel('Identidade e autorização',{exact:false}).check();await page.locator('#admin-dialog button[type=submit]').click();await expect(page.locator('#admin-dialog')).not.toBeVisible();await expect(page.locator('.financing-admin-row').first()).toContainText('Instituição do teste');

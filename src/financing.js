@@ -20,6 +20,31 @@ export function bindLogoFallback(root){root.querySelectorAll('img').forEach(img=
 function bindInstitutionsCarousel(section){
  const track=section.querySelector('.institutions-grid'),previous=section.querySelector('[data-bank-prev]'),next=section.querySelector('[data-bank-next]'),position=section.querySelector('.institutions-position');
  const cards=[...track.children];
+ const carousel=section.querySelector('.institutions-carousel');
+ const motion=matchMedia('(prefers-reduced-motion: reduce)');
+ const toggle=document.createElement('button');
+ toggle.type='button';toggle.setAttribute('aria-controls',track.id);
+ section.querySelector('.institutions-controls').insertBefore(toggle,previous);
+ let paused=motion.matches,hovered=false,timer;
+ const updateToggle=()=>{toggle.textContent=paused?'▶':'Ⅱ';toggle.setAttribute('aria-label',paused?'Iniciar carrossel automático':'Pausar carrossel automático');position.setAttribute('aria-live',paused?'polite':'off');};
+ const schedule=()=>{
+  clearTimeout(timer);
+  if(paused||hovered||document.hidden||carousel.contains(document.activeElement))return;
+  timer=setTimeout(()=>{
+   if(track.scrollWidth-track.clientWidth>2){
+    track.scrollTo({left:track.scrollLeft>=track.scrollWidth-track.clientWidth-2?0:track.scrollLeft+step(),behavior:motion.matches?'instant':'smooth'});
+   }
+   schedule();
+  },3000);
+ };
+ toggle.onclick=()=>{paused=!paused;updateToggle();schedule();};
+ const enter=()=>{hovered=true;schedule();},leave=()=>{hovered=false;schedule();};
+ const focusOut=()=>queueMicrotask(schedule);
+ const motionChanged=()=>{paused=motion.matches;updateToggle();schedule();};
+ carousel.addEventListener('mouseenter',enter);carousel.addEventListener('mouseleave',leave);
+ carousel.addEventListener('focusin',schedule);carousel.addEventListener('focusout',focusOut);
+ carousel.addEventListener('pointerdown',schedule);
+ document.addEventListener('visibilitychange',schedule);motion.addEventListener('change',motionChanged);
  const step=()=>cards[0].getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||0);
  const update=()=>{
   const max=track.scrollWidth-track.clientWidth;
@@ -28,15 +53,15 @@ function bindInstitutionsCarousel(section){
   position.textContent=`${first}–${last} de ${cards.length}`;
  };
  const move=direction=>{const count=Math.max(1,Math.floor((track.clientWidth+10)/step()));track.scrollBy({left:direction*step()*count,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};
- previous.onclick=()=>move(-1);next.onclick=()=>move(1);
+ previous.onclick=()=>{move(-1);schedule();};next.onclick=()=>{move(1);schedule();};
  track.addEventListener('keydown',event=>{
   if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key))event.preventDefault();
   if(event.key==='ArrowLeft')move(-1);if(event.key==='ArrowRight')move(1);
   if(event.key==='Home'||event.key==='End')track.scrollTo({left:event.key==='Home'?0:track.scrollWidth,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
  });
  track.addEventListener('scroll',update,{passive:true});
- const resize=new ResizeObserver(update);resize.observe(track);update();
- return ()=>resize.disconnect();
+ const resize=new ResizeObserver(update);resize.observe(track);update();updateToggle();schedule();
+ return ()=>{clearTimeout(timer);resize.disconnect();document.removeEventListener('visibilitychange',schedule);motion.removeEventListener('change',motionChanged);carousel.removeEventListener('mouseenter',enter);carousel.removeEventListener('mouseleave',leave);carousel.removeEventListener('focusin',schedule);carousel.removeEventListener('focusout',focusOut);carousel.removeEventListener('pointerdown',schedule);};
 }
 
 export function mountFinancingInstitutions(){

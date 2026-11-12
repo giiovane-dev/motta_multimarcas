@@ -643,6 +643,36 @@ footer {
   gap: 12px;
 }
 
+.business-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+}
+
+.business-socials svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.copyright .developer-credit {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.business-socials a:hover { color: #fff; }
+.copyright .developer-credit:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.business-socials a:focus-visible,
+.copyright .developer-credit:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
+}
+
 .copyright span {
   display: block;
   margin-top: 7px;
