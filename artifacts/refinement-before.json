@@ -1,0 +1,235 @@
+{
+  "measurements": [
+    {
+      "width": 1199,
+      "overflow": false,
+      "sections": [
+        {
+          "section": "HEADER",
+          "top": 0,
+          "height": 70
+        },
+        {
+          "section": "inicio",
+          "top": 70,
+          "height": 407
+        },
+        {
+          "section": "container search-area",
+          "top": 477,
+          "height": 73
+        },
+        {
+          "section": "estoque",
+          "top": 550,
+          "height": 414
+        },
+        {
+          "section": "financiamento",
+          "top": 966,
+          "height": 98
+        },
+        {
+          "section": "avaliacoes",
+          "top": 1089,
+          "height": 420
+        },
+        {
+          "section": "localizacao",
+          "top": 1509,
+          "height": 663
+        },
+        {
+          "section": "FOOTER",
+          "top": 2172,
+          "height": 242
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "sections": [
+        {
+          "section": "HEADER",
+          "top": 0,
+          "height": 69
+        },
+        {
+          "section": "inicio",
+          "top": 69,
+          "height": 610
+        },
+        {
+          "section": "container search-area",
+          "top": 679,
+          "height": 267
+        },
+        {
+          "section": "estoque",
+          "top": 946,
+          "height": 535
+        },
+        {
+          "section": "financiamento",
+          "top": 1505,
+          "height": 256
+        },
+        {
+          "section": "avaliacoes",
+          "top": 1786,
+          "height": 509
+        },
+        {
+          "section": "localizacao",
+          "top": 2294,
+          "height": 1066
+        },
+        {
+          "section": "FOOTER",
+          "top": 3360,
+          "height": 557
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "sections": [
+        {
+          "section": "HEADER",
+          "top": 0,
+          "height": 75
+        },
+        {
+          "section": "inicio",
+          "top": 75,
+          "height": 460
+        },
+        {
+          "section": "container search-area",
+          "top": 535,
+          "height": 179
+        },
+        {
+          "section": "estoque",
+          "top": 714,
+          "height": 491
+        },
+        {
+          "section": "financiamento",
+          "top": 1225,
+          "height": 189
+        },
+        {
+          "section": "avaliacoes",
+          "top": 1441,
+          "height": 420
+        },
+        {
+          "section": "localizacao",
+          "top": 1861,
+          "height": 703
+        },
+        {
+          "section": "FOOTER",
+          "top": 2564,
+          "height": 462
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "sections": [
+        {
+          "section": "HEADER",
+          "top": 0,
+          "height": 75
+        },
+        {
+          "section": "inicio",
+          "top": 75,
+          "height": 435
+        },
+        {
+          "section": "container search-area",
+          "top": 510,
+          "height": 79
+        },
+        {
+          "section": "estoque",
+          "top": 589,
+          "height": 431
+        },
+        {
+          "section": "financiamento",
+          "top": 1040,
+          "height": 108
+        },
+        {
+          "section": "avaliacoes",
+          "top": 1175,
+          "height": 420
+        },
+        {
+          "section": "localizacao",
+          "top": 1595,
+          "height": 703
+        },
+        {
+          "section": "FOOTER",
+          "top": 2297,
+          "height": 289
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "sections": [
+        {
+          "section": "HEADER",
+          "top": 0,
+          "height": 70
+        },
+        {
+          "section": "inicio",
+          "top": 70,
+          "height": 407
+        },
+        {
+          "section": "container search-area",
+          "top": 477,
+          "height": 73
+        },
+        {
+          "section": "estoque",
+          "top": 550,
+          "height": 426
+        },
+        {
+          "section": "financiamento",
+          "top": 978,
+          "height": 98
+        },
+        {
+          "section": "avaliacoes",
+          "top": 1101,
+          "height": 420
+        },
+        {
+          "section": "localizacao",
+          "top": 1520,
+          "height": 663
+        },
+        {
+          "section": "FOOTER",
+          "top": 2183,
+          "height": 224
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

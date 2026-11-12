@@ -1,0 +1,1 @@
+export function can(profile,area){if(!profile?.active)return false;if(['finance','reports'].includes(area))return false;if(profile.role==='admin')return true;if(profile.role==='manager')return area!=='settings';return profile.role==='seller'?['inventory','vehicle_write','customers','negotiations','tasks'].includes(area):['inventory','tasks','images'].includes(area);}

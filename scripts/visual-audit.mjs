@@ -1,0 +1,11 @@
+import {chromium} from '@playwright/test';
+import fs from 'node:fs/promises';
+const browser=await chromium.launch({channel:'msedge'});
+const page=await browser.newPage({viewport:{width:1199,height:900},deviceScaleFactor:1});
+await page.goto('http://127.0.0.1:5173/');
+await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.map(i=>i.decode())));
+await page.evaluate(()=>document.fonts.ready);
+await page.screenshot({path:`artifacts/audit-${process.argv[2]||'after'}.png`,fullPage:true});
+const sizes=await page.locator('header,.hero,.hero-copy,h1,.hero-actions,.benefits,#search,.section-heading,.vehicle-card,.financing,footer,.footer-grid,.copyright').evaluateAll(els=>els.map(el=>({selector:el.className||el.tagName,x:Math.round(el.getBoundingClientRect().x),y:Math.round(el.getBoundingClientRect().y),width:Math.round(el.getBoundingClientRect().width),height:Math.round(el.getBoundingClientRect().height)})));
+await fs.writeFile(`artifacts/audit-${process.argv[2]||'after'}.json`,JSON.stringify(sizes,null,2));console.log(sizes);
+await browser.close();

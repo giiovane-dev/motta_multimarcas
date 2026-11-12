@@ -1,0 +1,9 @@
+﻿import {readFile,writeFile} from 'node:fs/promises';import {chromium} from 'playwright';
+const browser=await chromium.launch({channel:'msedge',headless:true});const page=await browser.newPage();
+const names=['bradesco','itau','safra','daycoval','c6-bank','banco-pan','bv','omni'];
+for(const name of [...names,'daycoval-alt','bradesco-alt','pan-alt']){const path=names.includes(name)?'public/img/bancos/'+name+'.svg':'artifacts/'+name+'.svg';const original=await readFile(path,'utf8');
+const result=await page.evaluate(source=>{const doc=new DOMParser().parseFromString(source,'image/svg+xml');if(doc.querySelector('parsererror'))throw Error('Invalid XML');const root=doc.documentElement;for(const el of [...root.querySelectorAll('*')]){if(['script','foreignObject','iframe','object','embed','audio','video'].includes(el.localName))throw Error('Active SVG element');for(const attr of [...el.attributes]){if(/^on/i.test(attr.name))throw Error('Event handler');if(['href','xlink:href','src'].includes(attr.name)&&!attr.value.startsWith('#'))throw Error('Nonlocal reference');}if(['metadata','namedview'].includes(el.localName))el.remove();}
+for(const el of [root,...root.querySelectorAll('*')])for(const attr of [...el.attributes])if(/^(inkscape:|sodipodi:)/.test(attr.name))el.removeAttribute(attr.name);
+document.body.replaceChildren(document.importNode(root,true));const svg=document.body.firstElementChild;const b=svg.getBBox();const pad=Math.max(b.width,b.height)*.035;const bounds=[b.x-pad,b.y-pad,b.width+2*pad,b.height+2*pad];svg.setAttribute('viewBox',bounds.join(' '));svg.setAttribute('width',String(bounds[2]));svg.setAttribute('height',String(bounds[3]));return {bounds,svg:new XMLSerializer().serializeToString(svg)};},original);
+console.log(JSON.stringify({name,bounds:result.bounds,bytes:result.svg.length}));if(names.includes(name))await writeFile(path,result.svg);
+}await browser.close();

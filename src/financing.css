@@ -1,0 +1,66 @@
+.financing-institutions{background:#08090b;border-top:1px solid #282024;border-bottom:1px solid #242529;padding:82px 0 36px}
+.financing-institutions [hidden]{display:none!important}
+.institution-card{flex-direction:column;gap:7px}
+.institution-card .institution-caption{font-size:11px;font-weight:400;line-height:1.3;letter-spacing:.3px;color:#b8b4be}
+.institution-card .bank-logo-car-bank{max-width:112px;height:58px;background:#fff;border-radius:7px;padding:10px}
+.institutions-heading{max-width:740px;margin-bottom:37px}
+.institutions-heading .section-kicker{color:#e84854;font-size:10px;letter-spacing:2.2px;margin:0 0 17px}
+.institutions-heading h2{color:#f6f5f5;font-size:clamp(27px,3.1vw,42px);font-weight:600;line-height:1.23;letter-spacing:-1.1px;margin:0 0 20px}
+.institutions-heading h2 span{color:#ed3545}
+.institutions-heading>p:last-child{max-width:650px;font-size:14px;line-height:1.8;color:#a9a7ae}
+.institutions-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;padding:0;margin:0 0 37px}
+.institution-card{min-width:0;height:140px;border:1px solid #313136;background:#101114;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:21px;transition:background .25s,border-color .25s,transform .25s}
+.institution-card:hover{background:#17171b;border-color:#895158;transform:translateY(-2px)}
+.institution-card img{display:block;width:100%;max-width:150px;height:64px;object-fit:contain;filter:none}
+.institution-card .institution-logo.bank-logo-bradesco,.institution-card .institution-logo.bank-logo-safra,.institution-card .institution-logo.bank-logo-bv,.institution-card .institution-logo.bank-logo-omni{background:#f8f7f5;border-radius:7px;padding:8px}
+.institution-card .institution-logo.bank-logo-bradesco{max-width:68px;height:72px;padding:5px}
+.institution-card .institution-logo.bank-logo-itau{max-width:60px;height:60px}
+.institution-card .institution-logo.bank-logo-daycoval{max-width:48px;height:58px}
+.institution-card .institution-logo.bank-logo-c6-bank{max-width:140px;height:52px}
+.institution-card .institution-logo.bank-logo-banco-pan{max-width:116px;height:56px}
+.institution-card .institution-logo.bank-logo-bv{max-width:84px;height:62px}
+.institution-name{font-size:21px;font-weight:500;letter-spacing:-.5px;color:#e6e4e8;text-align:center;overflow-wrap:anywhere}
+.institutions-consult{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:29px 0;border-top:1px solid #2d2a2e}
+.institutions-consult>div{position:relative;padding-left:20px}
+.institutions-accent{position:absolute;left:0;top:4px;bottom:4px;width:2px;background:#db2838}
+.institutions-consult h3{font-size:19px;line-height:1.5;color:#efedf0;font-weight:500;margin:0}
+.institutions-consult p{font-size:12px;line-height:1.7;color:#9d9aa3;margin:7px 0 0}
+.institutions-consult .button{flex-shrink:0;font-size:13px;gap:20px;transition:background .25s,border-color .25s}
+.institutions-disclaimer{font-size:10px;color:#96929c;line-height:1.8;margin:0;padding-top:15px;border-top:1px solid #242327}
+.institution-reveal{opacity:0;transform:translateY(10px);transition:opacity .6s,transform .6s;transition-delay:var(--institution-delay,0ms)}
+.institution-reveal.is-visible{opacity:1;transform:translateY(0)}
+.institution-card.is-visible:hover{transform:translateY(-2px);transition-duration:.25s;transition-delay:0ms}
+@media(max-width:1050px){.institutions-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.institutions-consult h3{font-size:17px}}
+@media(max-width:650px){.financing-institutions{padding:50px 0 28px}.institutions-heading{margin-bottom:26px}.institutions-heading h2{font-size:28px;letter-spacing:-.7px}.institutions-heading h2 br{display:none}.institutions-heading>p:last-child{font-size:13px}.institutions-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:27px}.institution-card{height:90px;padding:15px}.institution-name{font-size:20px}.institutions-consult{align-items:stretch;flex-direction:column;gap:20px;padding:24px 0}.institutions-consult h3{font-size:17px}.institutions-consult .button{width:100%;justify-content:center}.institutions-disclaimer{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.financing-institutions *{transition:none!important;animation:none!important}.institution-reveal{opacity:1;transform:none}.institution-card:hover,.institution-card.is-visible:hover{transform:none}}
+@media(max-width:650px){.institution-card{height:120px;padding:14px}.institution-card img{max-width:130px;height:56px}.institution-card .bank-logo-bradesco{max-width:60px;height:64px}.institution-card .bank-logo-itau{max-width:54px;height:54px}.institution-card .bank-logo-daycoval{max-width:43px;height:54px}.institution-card .bank-logo-bv{max-width:76px;height:56px}}
+.institution-card{height:124px;padding:14px}
+@media(max-width:650px){.institution-card{height:112px;padding:10px}}
+
+.institution-card .institution-logo.bank-logo-santander{max-width:148px;height:60px;background:#fff;border-radius:7px;padding:8px}
+
+/* Compact bank marks, keeping captions readable. */
+.financing-institutions .institution-card{height:88px;padding:10px;gap:5px}
+.financing-institutions .institution-card .institution-logo{max-width:94px;height:38px;padding:5px}
+.financing-institutions .institution-card .bank-logo-bradesco{max-width:43px;height:44px;padding:3px}
+.financing-institutions .institution-card .bank-logo-itau{max-width:38px;height:38px;padding:0}
+.financing-institutions .institution-card .bank-logo-xcred{max-width:104px;height:38px;background:#000;border-radius:5px;padding:4px}
+.financing-institutions .institution-card .bank-logo-daycoval{max-width:29px;height:38px;padding:0}
+.financing-institutions .institution-card .bank-logo-bv{max-width:54px;height:38px}
+.financing-institutions .institution-card .institution-caption{font-size:10px}
+.financing-institutions .institutions-grid{gap:10px}
+@media(max-width:650px){.financing-institutions .institution-card{height:82px;padding:8px}}
+
+/* Native horizontal carousel: touch, keyboard and button navigation. */
+.institutions-carousel{min-width:0;margin-bottom:22px}
+.financing-institutions .institutions-grid{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 50px)/6);gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#51414a #131216;padding:4px 0 9px;margin:0}
+.institutions-grid .institution-card{scroll-snap-align:start;scroll-margin-inline:0}
+.institutions-grid:focus-visible{outline:2px solid #e83c4a;outline-offset:4px;border-radius:6px}
+.institutions-controls{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:10px}
+.institutions-controls button{width:36px;height:36px;display:grid;place-items:center;border:1px solid #42383e;border-radius:6px;background:#171419;color:#eae5ea;cursor:pointer;transition:background .25s,border-color .25s;font-size:18px}
+.institutions-controls button:hover:not(:disabled){background:#332028;border-color:#b44050}
+.institutions-controls button:disabled{opacity:.35;cursor:default}
+.institutions-controls button:focus-visible{outline:2px solid #ed3545;outline-offset:3px}
+.institutions-position{color:#aaa3ae;font-size:10px;letter-spacing:.3px;margin-right:7px}
+@media(max-width:1050px){.financing-institutions .institutions-grid{grid-auto-columns:calc((100% - 30px)/4)}}
+@media(max-width:650px){.financing-institutions .institutions-grid{grid-auto-columns:calc((100% - 20px)/2.4)}.institutions-controls button{width:42px;height:42px}}

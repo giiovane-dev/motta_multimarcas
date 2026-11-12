@@ -1,0 +1,15 @@
+.financing-settings{padding-bottom:24px}
+.financing-settings>.muted{margin-inline:14px;max-width:900px}
+.financing-admin-list{padding:5px 14px}
+.financing-admin-row{display:flex;align-items:center;gap:20px;padding:15px 0;border-bottom:1px solid #303037}
+.financing-admin-row:last-child{border-bottom:0}
+.financing-admin-visual{width:140px;height:64px;display:flex;align-items:center;justify-content:center;background:#0c0d0f;border:1px solid #34343b;border-radius:6px;padding:10px;flex-shrink:0}
+.financing-admin-visual img{width:100%;height:100%;object-fit:contain;filter:none}
+.financing-admin-visual .bank-logo-bradesco,.financing-admin-visual .bank-logo-safra,.financing-admin-visual .bank-logo-bv,.financing-admin-visual .bank-logo-omni{background:#f8f7f5;border-radius:3px;padding:4px}
+.financing-admin-visual .institution-name{font-size:16px}
+.financing-admin-visual .institution-caption{display:none}
+.financing-admin-visual .bank-logo-car-bank{background:#fff;border-radius:3px;padding:4px}
+.financing-admin-row>div:nth-child(2){flex:1;min-width:0;overflow-wrap:anywhere}
+.financing-admin-row small{display:block;margin-top:6px;line-height:1.7}
+.financing-admin-actions{display:flex;gap:8px}
+@media(max-width:650px){.financing-settings .panel-heading{flex-wrap:wrap}.financing-admin-row{flex-wrap:wrap;gap:12px}.financing-admin-visual{width:105px;height:54px}.financing-admin-actions{width:100%}.financing-admin-actions .abutton{flex:1}}

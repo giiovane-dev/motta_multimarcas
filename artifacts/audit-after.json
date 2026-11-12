@@ -1,0 +1,114 @@
+[
+  {
+    "selector": "HEADER",
+    "x": 0,
+    "y": 0,
+    "width": 1199,
+    "height": 70
+  },
+  {
+    "selector": "hero",
+    "x": 0,
+    "y": 70,
+    "width": 1199,
+    "height": 407
+  },
+  {
+    "selector": "hero-copy",
+    "x": 62,
+    "y": 70,
+    "width": 1075,
+    "height": 296
+  },
+  {
+    "selector": "H1",
+    "x": 79,
+    "y": 148,
+    "width": 1058,
+    "height": 90
+  },
+  {
+    "selector": "hero-actions",
+    "x": 79,
+    "y": 318,
+    "width": 1058,
+    "height": 48
+  },
+  {
+    "selector": "benefits",
+    "x": 62,
+    "y": 409,
+    "width": 1075,
+    "height": 42
+  },
+  {
+    "selector": "FORM",
+    "x": 62,
+    "y": 477,
+    "width": 1075,
+    "height": 73
+  },
+  {
+    "selector": "section-heading",
+    "x": 70,
+    "y": 581,
+    "width": 1059,
+    "height": 31
+  },
+  {
+    "selector": "vehicle-card",
+    "x": 82,
+    "y": 630,
+    "width": 242,
+    "height": 292
+  },
+  {
+    "selector": "vehicle-card",
+    "x": 349,
+    "y": 630,
+    "width": 242,
+    "height": 292
+  },
+  {
+    "selector": "vehicle-card",
+    "x": 616,
+    "y": 630,
+    "width": 242,
+    "height": 292
+  },
+  {
+    "selector": "vehicle-card",
+    "x": 883,
+    "y": 630,
+    "width": 242,
+    "height": 292
+  },
+  {
+    "selector": "financing",
+    "x": 19,
+    "y": 966,
+    "width": 1161,
+    "height": 98
+  },
+  {
+    "selector": "FOOTER",
+    "x": 0,
+    "y": 1089,
+    "width": 1199,
+    "height": 223
+  },
+  {
+    "selector": "container footer-grid",
+    "x": 62,
+    "y": 1090,
+    "width": 1075,
+    "height": 182
+  },
+  {
+    "selector": "container copyright",
+    "x": 80,
+    "y": 1272,
+    "width": 1039,
+    "height": 40
+  }
+]

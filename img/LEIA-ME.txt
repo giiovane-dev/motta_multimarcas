@@ -1,0 +1,3 @@
+Imagens recortadas do mockup Motta Multimarcas e ampliadas com interpolacao Lanczos.
+ATENCAO: a ampliacao nao recupera detalhes originais. Veiculos, valores e contatos exibidos no mockup sao ilustrativos e devem ser substituidos por materiais reais antes de publicar.
+A fachada enviada pelo cliente esta incluida separadamente.

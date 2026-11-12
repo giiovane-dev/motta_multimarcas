@@ -1,0 +1,56 @@
+.motta-dream{position:relative;isolation:isolate;overflow:hidden;width:100%;aspect-ratio:3.1;min-height:280px;display:grid;place-items:center;background:var(--bg,#08090b);perspective:1200px;border:0}
+.motta-dream .dream-texture{position:absolute;inset:0;z-index:-2;pointer-events:none;background:repeating-linear-gradient(147deg,#30252616 0 1px,transparent 1px 5px),linear-gradient(145deg,#191719,#080809 48%,#261315);opacity:.035}
+.motta-dream .dream-texture-top{clip-path:polygon(0 0,20% 0,0 38%);box-shadow:inset 0 0 80px #000}
+.motta-dream .dream-texture-bottom{clip-path:polygon(100% 62%,100% 100%,80% 100%);transform:none}
+.motta-dream .dream-texture:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(28deg,transparent 0 3px,#0007 3px 4px)}
+.motta-dream .dream-light{position:absolute;width:36%;height:2px;background:linear-gradient(90deg,#a00008,#ff2836 35%,#fff 65%,#e60613 92%,transparent);box-shadow:0 0 5px 1px #ff2124,0 0 20px 7px #f00014a0,0 0 75px 27px #c4001650;transform:rotate(-27deg);pointer-events:none;z-index:-1}
+.motta-dream .dream-light-left{left:-9%;bottom:20%}
+.motta-dream .dream-light-right{right:-9%;top:20%}
+.motta-dream .dream-brand-depth{position:absolute;inset:3% 15% 10%;display:grid;place-items:center;pointer-events:none;z-index:-1;transform-style:preserve-3d}
+.motta-dream .dream-watermark{width:100%;height:100%;max-height:95%;object-fit:contain;mix-blend-mode:screen;opacity:.03;filter:blur(1.5px) drop-shadow(0 12px 20px #000);transform:perspective(1200px) rotateX(3deg) rotateY(-1.5deg) scale(.98);user-select:none}
+.motta-dream .dream-composition{width:min(76%,1500px);text-align:center;position:relative;padding:12px 0 0}
+.motta-dream .dream-reminder{display:flex;align-items:center;justify-content:center;gap:clamp(18px,3.5vw,70px);margin:0 0 clamp(14px,1.8vw,34px);color:#f4f3f1;font:italic 400 clamp(29px,5vw,105px)/1 Georgia,'Times New Roman',serif;text-shadow:0 2px 2px #000}
+.motta-dream .dream-reminder em{font:inherit;white-space:nowrap}
+.motta-dream .dream-rule{width:clamp(55px,14vw,320px);height:2px;background:linear-gradient(90deg,transparent,#f3f3f1);box-shadow:0 1px 2px #000;flex-shrink:1}
+.motta-dream .dream-rule:last-child{transform:rotate(180deg)}
+.motta-dream .dream-heading{margin:0;color:#f8f7f5;font-family:Georgia,'Times New Roman',serif;font-size:clamp(34px,5.65vw,120px);font-weight:700;line-height:1.05;letter-spacing:.005em;text-shadow:0 2px 1px #b7b3b340,0 4px 10px #000;overflow:visible}
+.motta-dream .dream-line{display:block;white-space:nowrap;color:inherit}
+.motta-dream .dream-line+.dream-line{margin-top:.06em}
+.motta-dream .dream-letter{display:inline-block;color:inherit;white-space:pre}
+.motta-dream .dream-swoosh{display:block;width:88%;height:auto;max-height:65px;margin:5px auto 0;overflow:visible}
+.motta-dream .dream-swoosh-stroke{stroke:url(#dream-red-gradient);stroke-width:2;stroke-linecap:butt}
+.motta-dream .dream-swoosh-glow{stroke:#f00015;stroke-width:13;filter:blur(5px);opacity:.5}
+.motta-dream .dream-swoosh-shine{stroke:url(#dream-shine-gradient);stroke-width:2;stroke-dasharray:70 930;stroke-dashoffset:0;opacity:0;filter:drop-shadow(0 0 4px #ffb8a0)}
+.motta-dream.dream-awaiting .dream-light,.motta-dream.dream-awaiting .dream-watermark,.motta-dream.dream-awaiting .dream-reminder,.motta-dream.dream-awaiting .dream-letter{opacity:0}
+.motta-dream.dream-awaiting .dream-swoosh-stroke,.motta-dream.dream-awaiting .dream-swoosh-glow{stroke-dasharray:1000;stroke-dashoffset:1000}
+.motta-dream.dream-visible .dream-light{animation:dream-lights-in .6s ease both}
+.motta-dream.dream-visible .dream-watermark{animation:dream-brand-in 1.2s .15s ease both}
+.motta-dream.dream-visible .dream-reminder{animation:dream-reminder-in .5s .4s ease both}
+.motta-dream.dream-visible .dream-letter{animation:dream-letter-in .48s var(--letter-delay) cubic-bezier(.22,.7,.3,1) both}
+.motta-dream.dream-visible .dream-swoosh-stroke,.motta-dream.dream-visible .dream-swoosh-glow{animation:dream-curve-in .7s 2.3s ease-out both}
+.motta-dream.dream-visible .dream-swoosh-shine{animation:dream-curve-shine .75s 2.55s ease-out both}
+@keyframes dream-lights-in{from{opacity:0}to{opacity:.6}}
+@keyframes dream-brand-in{from{opacity:0;transform:perspective(1200px) rotateX(3deg) rotateY(-1.5deg) scale(1.025)}to{opacity:.03;transform:perspective(1200px) rotateX(3deg) rotateY(-1.5deg) scale(.98)}}
+@keyframes dream-reminder-in{from{opacity:0;transform:translateY(12px);filter:blur(2px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes dream-letter-in{from{opacity:0;transform:translateY(14px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes dream-curve-in{from{stroke-dasharray:1000;stroke-dashoffset:1000}to{stroke-dasharray:1000;stroke-dashoffset:0}}
+@keyframes dream-curve-shine{0%{opacity:0;stroke-dashoffset:0}15%{opacity:1}85%{opacity:1}100%{opacity:0;stroke-dashoffset:-1000}}
+@media(max-width:760px){.motta-dream{aspect-ratio:auto;min-height:275px;padding:36px 15px}.motta-dream .dream-composition{width:100%;padding:0}.motta-dream .dream-reminder{font-size:34px;gap:17px;margin-bottom:20px}.motta-dream .dream-rule{width:57px;height:1px}.motta-dream .dream-heading{font-size:clamp(27px,7.6vw,52px);letter-spacing:0;line-height:1.11}.motta-dream .dream-swoosh{width:89%;margin-top:12px;max-height:38px}.motta-dream .dream-brand-depth{inset:15% 3% 15%}.motta-dream .dream-light{width:47%;box-shadow:0 0 4px #ff2124,0 0 17px 5px #e0001480,0 0 45px 16px #c4001630}.motta-dream .dream-light-left{left:-21%;bottom:19%}.motta-dream .dream-light-right{right:-21%;top:18%}.motta-dream .dream-texture-top{clip-path:polygon(0 0,38% 0,0 26%)}.motta-dream .dream-texture-bottom{clip-path:polygon(100% 74%,100% 100%,62% 100%)}}
+@media(prefers-reduced-motion:reduce){.motta-dream *{animation:none!important;transition:none!important}.motta-dream .dream-watermark{opacity:.03!important;filter:blur(1.5px);transform:none}.motta-dream .dream-light{opacity:.6!important}.motta-dream .dream-reminder,.motta-dream .dream-letter{opacity:1!important;transform:none;filter:none}.motta-dream .dream-swoosh-stroke,.motta-dream .dream-swoosh-glow{stroke-dasharray:none!important;stroke-dashoffset:0!important}.motta-dream .dream-swoosh-shine{display:none}}
+
+.motta-dream.dream-awaiting .dream-swoosh-fill{clip-path:inset(0 100% 0 0)}
+.motta-dream.dream-visible .dream-swoosh-fill{animation:dream-fill-in .7s 2.3s ease-out both}
+@keyframes dream-fill-in{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media(prefers-reduced-motion:reduce){.motta-dream .dream-swoosh-fill{clip-path:none!important}}
+
+/* Blend decorative layers into the page on all four edges. */
+.motta-dream::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;background:linear-gradient(180deg,var(--bg,#08090b) 0%,transparent 23%,transparent 77%,var(--bg,#08090b) 100%),linear-gradient(90deg,var(--bg,#08090b) 0%,transparent 13%,transparent 87%,var(--bg,#08090b) 100%)}
+.motta-dream .dream-light{opacity:.6}
+
+/* Slightly smaller institutional composition. */
+.motta-dream{aspect-ratio:3.6;min-height:250px}
+.motta-dream .dream-composition{width:min(69%,1350px)}
+.motta-dream .dream-heading{font-size:clamp(31px,5.05vw,106px)}
+.motta-dream .dream-reminder{font-size:clamp(27px,4.45vw,92px);margin-bottom:clamp(12px,1.5vw,28px)}
+.motta-dream .dream-swoosh{max-height:55px}
+@media(max-width:760px){.motta-dream{aspect-ratio:auto;min-height:245px;padding:30px 15px}.motta-dream .dream-composition{width:96%}.motta-dream .dream-heading{font-size:clamp(25px,7vw,47px)}.motta-dream .dream-reminder{font-size:30px;margin-bottom:17px}.motta-dream .dream-swoosh{max-height:32px}}
